@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="logout-container">
+        <button id="logoutButton">Logout</button>
+    </div>
+    
+    <div class="container">
+        <h2>Trial File Upload Dashboard</h2>
+        <p>Upload your files here down below!</p>
+
+        <div>
+            <input type="file" id="fileToUpload" multiple />
+            <button onclick="uploadMedia()">Upload Files</button>
+        </div>
+
+        <!-- Progress and File List Containers -->
+        <div id="progressContainer" style="display: none;">
+            <h3>Upload Progress:</h3>
+            <!-- Static table heading -->
+            <table id="uploadTable">
+                <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>File Name</th>
+                        <th>Percentage</th>
+                    </tr>
+                </thead>
+                <tbody id="fileList"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        Contact us: <a href="mailto:aam-dmat-team@yara.com">aam-dmat-team@yara.com</a>
+    </footer>
+
+    <!-- Include JavaScript dependencies -->
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1040.0.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "name": "aam-copenhagen-university-data-management",
+  "version": "1.0.0",
+  "main": "sever.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.658.1",
+    "@aws-sdk/client-secrets-manager": "^3.658.1",
+    "@aws-sdk/s3-request-presigner": "^3.658.0",
+    "aws-sdk": "^2.1691.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "http-server": "^14.1.1"
+  },
+  "description": "",
+  "devDependencies": {
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4",
+    "express": "^4.18.2",
+    "@aws-sdk/client-secrets-manager": "^3.0.0"
+  }
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COP-DM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;  
+            height: 100vh;       /*change*/
+            margin: 0;
+            background-image: url('img.jpg'); /* Add your background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .login-container input {
+            display: block;
+            width: 235px; /* Full width 100% - this 235px for a user's email*/
+            padding: 10px;
+            margin: 10px auto; /* Space between elements */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-container button {   /*this for the text Login*/
+            display: block;
+            padding: 7px;
+            background-color: #28a745;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 70px;
+            margin: 10px auto;
+            text-align: center;
+        }
+
+        .login-container button:hover {
+            background-color: #218838;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="download.png" alt="Company Logo" class="logo">
+        <h1>Welcome to the Copenhagen University Data Capturing Portal</h1>
+        <h2>Please Login</h2>
+        <input type="text" id="username" placeholder="Email ID">
+        <input type="password" id="password" placeholder="Password">
+        <button id='signInButton'>Login</button>
+        <p class="error" id="error"></p>
+    </div>
+
+    <script>
+        // Function to parse CSV file content
+        async function fetchCredentials() {
+            try {
+                const response = await fetch('Cred.csv'); // Make sure Cred.csv is accessible and in the correct location
+                const data = await response.text();
+                const credentials = data.split('\n').map(line => line.split(',')); // Parsing CSV into an array
+                return credentials;
+            } catch (error) {
+                console.error('Error fetching credentials:', error);
+                document.getElementById('error').textContent = "Error loading credentials.";
+                return [];
+            }
+        }
+
+        // Check the credentials against the CSV data
+        async function validateCredentials(username, password) {
+            const credentials = await fetchCredentials();
+            for (let [csvUsername, csvPassword] of credentials) {
+                if (csvUsername.trim() === username && csvPassword.trim() === password) {
+                    return true; // Credentials match
+                }
+            }
+            return false; // No match found
+        }
+
+        document.getElementById('signInButton').addEventListener('click', async () => {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (await validateCredentials(username, password)) {
+                sessionStorage.setItem("loggedIn", true); // Store the login state
+                window.location.href = 'upload.html'; // Redirect to upload.html
+            } else {
+                document.getElementById('error').textContent = "Login failed. Please try again.";
+            }
+        });
+    </script>
+</body>
+</html>

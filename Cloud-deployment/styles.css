@@ -1,0 +1,183 @@
+body {
+    font-family: Arial, sans-serif;
+    /*background-image: url("user\ upload.png");*/
+    background-image: url("Chessboard_trial.jpeg");
+    background-repeat: no-repeat;
+
+}
+
+.logout-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+#logoutButton {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  float: right;
+  position: absolute; /* or relative, based on your layout */
+  top: 10px; /* Adjust this value as needed */
+  right: 20px; /* Maintain right positioning */
+ /* margin-top: -40px;*/
+}
+
+#logoutButton:hover {
+  background-color: green;
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 70px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    text-align: center;
+
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.fileInput {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.fileInput input[type="file"] {
+    display: none;
+}
+
+button {
+    display: block;
+    margin: 10px auto;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#fileList {
+    margin-top: 20px;
+    border-collapse: collapse;
+    /*text-align: left;*/
+}
+
+#fileList td, #fileList th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#fileList th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+.file-container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #f9f9f9;
+  }
+  
+  .file-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  #uploadTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#uploadTable th, #uploadTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#uploadTable th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+#uploadTable td {
+    font-size: 14px;
+}
+
+#progressContainer {
+    margin-top: 20px;
+    /*display: block;*/
+    display: none;
+}
+
+  .progress-bar-container {
+    background: blue;  /*#e0e0e0 -- white*/
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    height: 10px;
+    background: blue; /* Default progress bar color */
+    width: 0;
+  }
+  
+  .status-text {
+    margin-top: 5px;
+    font-size: 14px;
+  }
+  
+  .actions-container {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .retry-button, .delete-button {
+    background-color: transparent;
+    border: none;
+    color: #007BFF;
+    cursor: pointer;
+    display: none; /* Hidden by default, shown on error */
+  }
+  
+  .retry-button:hover, .delete-button:hover {
+    text-decoration: underline;
+  }
+  
+  footer {
+    background-color: white;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    font-size: 14px;
+    color: black;
+  }
+
+  footer a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
